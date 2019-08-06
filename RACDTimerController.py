@@ -254,12 +254,12 @@ class RACDTimerController(OpenRTM_aist.DataFlowComponentBase):
 			if onoff:
 				if out_data == True:
 					out_data = False
-					print("2")
-					print(out_data)
+					#print("2")
+					#print(out_data)
 				else:
 					out_data = True
-					print("1")
-					print(out_data)
+					#print("1")
+					#print(out_data)
 				onoff = False
 			else:
 				onoff = True
@@ -283,8 +283,12 @@ class RACDTimerController(OpenRTM_aist.DataFlowComponentBase):
 				self._stop = self._stopIn.read()
 				if self._stop:
 					self.game = False
-			#print(self._in)
-			print(self.game)
+
+					# robot stop
+					self._d_vel.data.vx = 0
+					self._d_vel.data.va = 0
+					self._velOut.write()					
+			#print(self.game)
 			
 			if self.game:
 				
@@ -319,7 +323,7 @@ class RACDTimerController(OpenRTM_aist.DataFlowComponentBase):
 				if self._in.data[self.ar_num] != self.arm_open:
 					if not(self.a_onoff):
 						self._armOut.write()
-						print("OK")
+						#print("OK")
 				self.arm_open = self._in.data[self.ar_num]
 
 
