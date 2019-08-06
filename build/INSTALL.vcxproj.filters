@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\OGATA\workspace\summerCamp\RACDTimerController\build\CMakeFiles\5ed5a230c37f86a716d0b5724b9c5f28\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EE8C2673-087B-33B1-83FE-1EA276214ACA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

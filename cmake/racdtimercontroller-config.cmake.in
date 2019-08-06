@@ -1,0 +1,54 @@
+# RACDTimerController CMake config file
+#
+# This file sets the following variables:
+# RACDTimerController_FOUND - Always TRUE.
+# RACDTimerController_INCLUDE_DIRS - Directories containing the RACDTimerController include files.
+# RACDTimerController_IDL_DIRS - Directories containing the RACDTimerController IDL files.
+# RACDTimerController_LIBRARIES - Libraries needed to use RACDTimerController.
+# RACDTimerController_DEFINITIONS - Compiler flags for RACDTimerController.
+# RACDTimerController_VERSION - The version of RACDTimerController found.
+# RACDTimerController_VERSION_MAJOR - The major version of RACDTimerController found.
+# RACDTimerController_VERSION_MINOR - The minor version of RACDTimerController found.
+# RACDTimerController_VERSION_REVISION - The revision version of RACDTimerController found.
+# RACDTimerController_VERSION_CANDIDATE - The candidate version of RACDTimerController found.
+
+message(STATUS "Found RACDTimerController-@PROJECT_VERSION@")
+set(RACDTimerController_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(RACDTimerController_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(RACDTimerController_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(RACDTimerController_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(RACDTimerController_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(RACDTimerController_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(RACDTimerController_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(RACDTimerController_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(RACDTimerController_VERSION @PROJECT_VERSION@)
+set(RACDTimerController_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(RACDTimerController_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(RACDTimerController_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(RACDTimerController_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
